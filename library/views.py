@@ -7,16 +7,10 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required,user_passes_test
 from datetime import datetime,timedelta,date
 from django.core.mail import send_mail
-from django.contrib.auth.views import LoginView
+
 #from librarymanagement.settings import EMAIL_HOST_USER
 
-class CustomAdminLoginView(LoginView):
-    form_class = AdminLoginForm
-    template_name = 'library/adminlogin.html'
 
-class CustomStudentLoginView(LoginView):
-    form_class = StudentLoginForm
-    template_name = 'library/studentlogin.html'
 
 def home_view(request):
     if request.user.is_authenticated:
