@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django_advanced_password_validation'
     'django.contrib.staticfiles',
     'captcha'
     'library',
