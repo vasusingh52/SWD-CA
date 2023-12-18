@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from . import models
-from captcha.fields import CaptchaField
+
 
 class ContactusForm(forms.Form):
     Name = forms.CharField(max_length=30)
@@ -16,11 +16,7 @@ class AdminSigupForm(forms.ModelForm):
         model=User
         fields=['first_name','last_name','username','password']
 
-class AdminloginForm(forms.Form):
-    class Meta:
-        model=User
-        fields=['username','password'] 
-        captcha = CaptchaField()     
+    
 
 class StudentUserForm(forms.ModelForm):
     class Meta:
@@ -31,12 +27,6 @@ class StudentExtraForm(forms.ModelForm):
     class Meta:
         model=models.StudentExtra
         fields=['enrollment','branch']
-
-class StudentloginForm(forms.Form):
-    class Meta:
-        model=User
-        fields=['username','password'] 
-        captcha = CaptchaField() 
         
 class BookForm(forms.ModelForm):
     class Meta:
