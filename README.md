@@ -17,11 +17,11 @@ This project is built with:
 ## Installation 📦
 ### To install Django Music Player, follow these steps:
 ## 1. Clone this repository:
->'https://github.com/BurhanMohammad/Django-librarymanagement.git'
+>'(https://github.com/vasusingh52/SWD-CA.git)'
 ## 2. Navigate to the project directory:
 
 ```bash
-  cd Django-librarymanagement
+  cd SWD-CA.git
 ```
 ## 3 . Create a virtual environment:
 ```bash
