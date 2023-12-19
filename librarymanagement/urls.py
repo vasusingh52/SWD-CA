@@ -18,6 +18,10 @@ from django.conf.urls import include
 from django.urls import path
 from library import views
 from django.contrib.auth.views import LoginView,LogoutView
+from .views import home_view, studentclick_view, adminclick_view, adminsignup_view, studentsignup_view, \
+    afterlogin_view, addbook_view, viewbook_view, issuebook_view, viewissuedbook_view, viewstudent_view, \
+    viewissuedbookbystudent, aboutus_view, contactus_view, logout_view
+
 
 
 
@@ -48,5 +52,6 @@ urlpatterns = [
 
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
+    path('logout/', logout_view, name='logout_view'),
 
 ]
