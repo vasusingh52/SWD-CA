@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    ‘pwned_passwords_django.middleware.PwnedPasswordsMiddleware’,
       
 ]
 
@@ -86,6 +87,10 @@ DATABASES = {
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME':‘pwned_passwords_django.validators.PwnedPasswordsValidator’,
+        'OPTIONS':{'error message':('This password is already breached')}
+    }
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
