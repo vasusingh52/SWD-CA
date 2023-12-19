@@ -12,7 +12,7 @@ from django.views.decorators.http import require_http_methods
 
 
 
-@require_http_methods(["GET"])
+
 def home_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
