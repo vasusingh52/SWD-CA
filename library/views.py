@@ -12,7 +12,7 @@ from django.views.decorators.http import require_http_methods
 #from librarymanagement.settings import EMAIL_HOST_USER
 
 
-
+@require_http_methods(["POST"])
 def home_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
