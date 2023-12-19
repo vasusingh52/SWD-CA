@@ -33,7 +33,7 @@ def adminclick_view(request):
     return render(request,'library/adminclick.html')
 
 
-@require_http_methods(["GET"])
+@require_http_methods(["POST"])
 def adminsignup_view(request):
     form=forms.AdminSigupForm()
     if request.method=='POST':
@@ -54,7 +54,7 @@ def adminsignup_view(request):
 
 
 
-@require_http_methods(["GET"])
+@require_http_methods(["POST"])
 def studentsignup_view(request):
     form1=forms.StudentUserForm()
     form2=forms.StudentExtraForm()
@@ -116,7 +116,7 @@ def viewbook_view(request):
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-@require_http_methods(["GET"])
+@require_http_methods(["POST"])
 def issuebook_view(request):
     form=forms.IssuedBookForm()
     if request.method=='POST':
@@ -201,7 +201,7 @@ def viewissuedbookbystudent(request):
 def aboutus_view(request):
     return render(request,'library/aboutus.html')
 
-@require_http_methods(["GET"])
+@require_http_methods(["POST"])
 def contactus_view(request):
     sub = forms.ContactusForm()
     if request.method == 'POST':
