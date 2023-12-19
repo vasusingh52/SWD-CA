@@ -109,6 +109,9 @@ AUTHENTICATION_BACKENDS=[
     'django.contrib.auth.backends.ModelBackend'
 ]
 
+AXES_FAILURE_LIMIT=3
+AXES_COOLOFF_TIME=5
+AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
