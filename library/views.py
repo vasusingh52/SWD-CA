@@ -12,28 +12,28 @@ from django.views.decorators.http import require_http_methods
 
 
 
-
+@require_safe
 def home_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'library/index.html')
 
 #for showing signup/login button for student
-
+@require_safe
 def studentclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'library/studentclick.html')
 
 #for showing signup/login button for teacher
-
+@require_safe
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
     return render(request,'library/adminclick.html')
 
 
-
+@require_safe
 def adminsignup_view(request):
     form=forms.AdminSigupForm()
     if request.method=='POST':
@@ -54,7 +54,7 @@ def adminsignup_view(request):
 
 
 
-
+@require_safe
 def studentsignup_view(request):
     form1=forms.StudentUserForm()
     form2=forms.StudentExtraForm()
@@ -82,7 +82,7 @@ def studentsignup_view(request):
 def is_admin(user):
     return user.groups.filter(name='ADMIN').exists()
     
-
+@require_safe
 def afterlogin_view(request):
     if is_admin(request.user):
         return render(request,'library/adminafterlogin.html')
@@ -92,7 +92,7 @@ def afterlogin_view(request):
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-
+@require_safe
 def addbook_view(request):
     #now it is empty book form for sending to html
     form=forms.BookForm()
@@ -106,7 +106,7 @@ def addbook_view(request):
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-
+@require_safe
 def viewbook_view(request):
     books=models.Book.objects.all()
     return render(request,'library/viewbook.html',{'books':books})
@@ -116,7 +116,7 @@ def viewbook_view(request):
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-
+@require_safe
 def issuebook_view(request):
     form=forms.IssuedBookForm()
     if request.method=='POST':
@@ -133,7 +133,7 @@ def issuebook_view(request):
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-
+@require_safe
 def viewissuedbook_view(request):
     issuedbooks=models.IssuedBook.objects.all()
     li=[]
@@ -162,14 +162,14 @@ def viewissuedbook_view(request):
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
-
+@require_safe
 def viewstudent_view(request):
     students=models.StudentExtra.objects.all()
     return render(request,'library/viewstudent.html',{'students':students})
 
 
 @login_required(login_url='studentlogin')
-
+@require_safe
 def viewissuedbookbystudent(request):
     student=models.StudentExtra.objects.filter(user_id=request.user.id)
     issuedbook=models.IssuedBook.objects.filter(enrollment=student[0].enrollment)
@@ -197,11 +197,11 @@ def viewissuedbookbystudent(request):
 
     return render(request,'library/viewissuedbookbystudent.html',{'li1':li1,'li2':li2})
 
-
+@require_safe
 def aboutus_view(request):
     return render(request,'library/aboutus.html')
 
-
+@require_safe
 def contactus_view(request):
     sub = forms.ContactusForm()
     if request.method == 'POST':
