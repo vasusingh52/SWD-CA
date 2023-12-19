@@ -8,9 +8,13 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from datetime import datetime,timedelta,date
 from django.core.mail import send_mail
 from django.views.decorators.http import require_http_methods
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
-
-
+@require_http_methods(["GET", "POST"])
+def logout_view(request):
+    logout(request)
+    return redirect('home_view')  
 
 @require_http_methods(["GET", "POST"])
 def home_view(request):
