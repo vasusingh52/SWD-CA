@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'axes.middleware.AxesMiddleware’ ,
+    'django_auto_logout.middleware.auto_logout',
       
 ]
 
@@ -112,6 +113,7 @@ AUTHENTICATION_BACKENDS=[
 AXES_FAILURE_LIMIT=3
 AXES_COOLOFF_TIME=5
 AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
+AUTO_LOGOUT = {'IDLE_TIME': 600}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
