@@ -74,7 +74,11 @@
 </div>
 
 
-
+{% for message in messages %}
+    <div class="message text-center alert alert-info {{ message.tags }}">
+        {{ message }}
+    </div>
+{% endfor %}
 
 
 
