@@ -12,11 +12,6 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 
 
-def logout_view(request):
-    logout(request)
-    return redirect('home_view')  
-
-
 def home_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
