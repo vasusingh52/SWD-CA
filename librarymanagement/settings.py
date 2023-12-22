@@ -23,7 +23,7 @@ STATIC_DIR=os.path.join(BASE_DIR,'static')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY=config{'SECRET_KEY', default='unsafe_key'}
-SECRET_KEY=k(6-_4sgig$sbrccr2*0=7s)bklpiywi#_121l)s(f8)dq^^wv
+SECRET_KEY='k(6-_4sgig$sbrccr2*0=7s)bklpiywi#_121l)s(f8)dq^^wv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
